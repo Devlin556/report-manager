@@ -61,6 +61,6 @@ apps/**/dist
 packages/**/node_modules
 packages/**/dist
 
-./postgres_data
+./postgres_data/**/*
 ./.turbo/cache
-./minio_data
+./minio_data/**/*

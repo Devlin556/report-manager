@@ -1,0 +1,22 @@
+{
+  "name": "report-manager",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "migration:generate": "yarn workspace backend migration:generate name=${npm_config_name:-Migration}",
+    "migration:run": "yarn workspace backend migration:run",
+    "migration:revert": "yarn workspace backend migration:revert",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "format:check": "turbo run format:check",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "turbo": "^2.3.0"
+  },
+  "packageManager": "yarn@1.22.0"
+}
