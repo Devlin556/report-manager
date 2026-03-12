@@ -15,10 +15,11 @@ yarn migration:run
 # 2. Запуск всех сервисов
 docker-compose up -d
 
-# 3. Открыть в браузере
+# 3. MinIO: открыть http://localhost:9001 и создать bucket "reports" (один раз)
+
+# 4. Открыть в браузере
 # http://localhost — фронтенд
 # http://localhost:3000 — API
-# http://localhost:9001 — MinIO Console (создать bucket "reports" при первом запуске)
 ```
 
 ---
@@ -35,6 +36,8 @@ docker-compose up -d postgres redis minio
 - **PostgreSQL** (5432) — БД
 - **Redis** (6379) — pub/sub статусов
 - **MinIO** (9000 API, 9001 UI) — S3-совместимое хранилище
+
+> **MinIO:** после первого запуска откройте http://localhost:9001 (MinIO Console) и создайте bucket с именем `reports`.
 
 ### Этап 2. Зависимости
 
@@ -150,7 +153,7 @@ report-manager/
 
 - **postgres**: PostgreSQL 16
 - **redis**: Redis 7
-- **minio**: MinIO (S3)
+- **minio**: MinIO (S3). После запуска создать bucket `reports` в MinIO Console (http://localhost:9001)
 - **backend**: NestJS API (порт 3000)
 - **frontend**: Nginx + статика (порт 80)
 
