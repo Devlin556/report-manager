@@ -1,0 +1,107 @@
+{
+  "reportType": "medical-stats",
+  "format": "pdf",
+  "modules": [
+    { "type": "header", "dataKey": "title", "config": {} },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Динамика посещений" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.visits",
+      "config": { "chartType": "line", "title": "Посещения по дням" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.proceduresTrend",
+      "config": { "chartType": "line", "title": "Процедуры по дням" }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Статистика по диагнозам" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.byDiagnosis",
+      "config": { "chartType": "bar", "title": "Топ диагнозов" }
+    },
+    {
+      "type": "table",
+      "dataKey": "topDiagnoses",
+      "config": { "columns": ["diagnosis", "count", "share"] }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Активность по врачам" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.byDoctor",
+      "config": { "chartType": "bar", "title": "Приёмы по врачам" }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "По отделениям" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.byDepartment",
+      "config": { "chartType": "bar", "title": "Визиты по отделениям" }
+    },
+    {
+      "type": "table",
+      "dataKey": "departmentStats",
+      "config": { "columns": ["department", "visits", "procedures"] }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Процедуры" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.byProcedure",
+      "config": { "chartType": "bar", "title": "Топ процедур" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.weeklyVisits",
+      "config": { "chartType": "bar", "title": "Визиты по неделям" }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Статистика по дням" }
+    },
+    {
+      "type": "table",
+      "dataKey": "clinicStats",
+      "config": { "columns": ["date", "visits", "procedures"] }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Сводка по процедурам" }
+    },
+    {
+      "type": "table",
+      "dataKey": "topProcedures",
+      "config": { "columns": ["name", "count", "revenue"] }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Аналитика" }
+    },
+    {
+      "type": "textBlocks",
+      "dataKey": "textBlocks",
+      "config": {}
+    }
+  ]
+}

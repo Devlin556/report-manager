@@ -1,0 +1,70 @@
+{
+  "reportType": "procedure-analytics",
+  "format": "xlsx",
+  "modules": [
+    {
+      "type": "sheet",
+      "dataKey": "procedures",
+      "config": {
+        "name": "Процедуры",
+        "columns": ["name", "count", "cost", "doctor", "department"]
+      }
+    },
+    {
+      "type": "sheet",
+      "dataKey": "aggregations",
+      "config": {
+        "name": "По врачам",
+        "columns": ["doctor", "count", "revenue"]
+      }
+    },
+    {
+      "type": "sheet",
+      "dataKey": "byDepartment",
+      "config": {
+        "name": "По отделениям",
+        "columns": ["department", "count", "revenue"]
+      }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartData",
+      "config": { "name": "Топ врачей", "chartType": "bar" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartByProcedure",
+      "config": { "name": "Топ процедур (столбцы)", "chartType": "column" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartByDepartment",
+      "config": { "name": "По отделениям (круговая)", "chartType": "pie" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartRevenueByDoctor",
+      "config": { "name": "Доход по врачам", "chartType": "bar" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartRevenueByProcedure",
+      "config": { "name": "Доход по процедурам (кольцо)", "chartType": "doughnut" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartRevenueByDepartment",
+      "config": { "name": "Доход по отделениям", "chartType": "column" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartByMonth",
+      "config": { "name": "Процедуры по месяцам (линия)", "chartType": "line" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartCostByProcedure",
+      "config": { "name": "Ср. стоимость процедур", "chartType": "column" }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+# Конфигурация для запуска в Docker (hostname = имя сервиса)
+service:
+  environment: production
+  name: report-manager
+
+ports:
+  application: 3000
+
+services:
+  redis:
+    host: redis
+    port: 6379
+    password: reportmanager
+
+  database:
+    host: postgres
+    port: 5432
+    username: reportmanager
+    password: reportmanager
+    database: reportmanager
+
+  s3:
+    endpoint: http://minio:9000
+    publicEndpoint: http://localhost:9000
+    region: us-east-1
+    accessKey: minioadmin
+    secretKey: minioadmin
+    bucket: reports
+
+reports:
+  generationDelayMs: 5000

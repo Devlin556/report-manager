@@ -1,0 +1,62 @@
+{
+  "reportType": "patient-registry",
+  "format": "xlsx",
+  "modules": [
+    {
+      "type": "sheet",
+      "dataKey": "patients",
+      "config": {
+        "name": "Реестр пациентов",
+        "columns": ["lastName", "firstName", "birthDate", "diagnosis", "visitDate", "doctor"]
+      }
+    },
+    {
+      "type": "sheet",
+      "dataKey": "byDiagnosis",
+      "config": {
+        "name": "По диагнозам",
+        "columns": ["diagnosis", "count", "percentage"]
+      }
+    },
+    {
+      "type": "sheet",
+      "dataKey": "summary",
+      "config": { "name": "Сводка" }
+    },
+    {
+      "type": "sheet",
+      "dataKey": "metadata",
+      "config": { "name": "Информация" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartByDiagnosis",
+      "config": { "name": "Топ диагнозов (круговая)", "chartType": "pie" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartByDoctor",
+      "config": { "name": "Пациенты по врачам", "chartType": "bar" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartByMonth",
+      "config": { "name": "Визиты по месяцам (линия)", "chartType": "line" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartByWeek",
+      "config": { "name": "Визиты по неделям", "chartType": "column" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartAgeGroups",
+      "config": { "name": "По возрастным группам (кольцо)", "chartType": "doughnut" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "chartTopDoctors",
+      "config": { "name": "Топ врачей по приёмам", "chartType": "column" }
+    }
+  ]
+}

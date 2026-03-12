@@ -1,0 +1,30 @@
+service:
+  environment: development
+  name: report-manager
+
+ports:
+  application: 3000
+
+services:
+  redis:
+    host: localhost
+    port: 6379
+    password: reportmanager
+
+  database:
+    host: localhost
+    port: 5432
+    username: reportmanager
+    password: reportmanager
+    database: reportmanager
+
+  s3:
+    endpoint: http://localhost:9000
+    region: us-east-1
+    accessKey: minioadmin
+    secretKey: minioadmin
+    bucket: reports
+
+reports:
+  # Задержка генерации отчётов (мс), ~20 сек = 18000
+  generationDelayMs: 18000

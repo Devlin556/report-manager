@@ -1,0 +1,92 @@
+{
+  "reportType": "financial",
+  "format": "pdf",
+  "modules": [
+    { "type": "header", "dataKey": "title", "config": {} },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Итоговые показатели" }
+    },
+    {
+      "type": "table",
+      "dataKey": "summaryTables",
+      "config": { "columns": ["totalRevenue", "totalExpenses", "netProfit", "margin"] }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Динамика доходов" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.revenue",
+      "config": { "chartType": "line", "title": "Доходы по месяцам" }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Динамика расходов" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.expenses",
+      "config": { "chartType": "bar", "title": "Расходы по месяцам" }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Прибыль" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.profit",
+      "config": { "chartType": "line", "title": "Чистая прибыль по месяцам" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.profitByQuarter",
+      "config": { "chartType": "bar", "title": "Прибыль по кварталам" }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Структура доходов" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.revenueByCategory",
+      "config": { "chartType": "bar", "title": "Доходы по категориям" }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Структура расходов" }
+    },
+    {
+      "type": "chart",
+      "dataKey": "charts.expensesByCategory",
+      "config": { "chartType": "bar", "title": "Расходы по категориям" }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Детализация по месяцам" }
+    },
+    {
+      "type": "table",
+      "dataKey": "financialData",
+      "config": { "columns": ["month", "revenue", "expenses", "profit"] }
+    },
+    {
+      "type": "section",
+      "dataKey": "",
+      "config": { "title": "Данные по кварталам" }
+    },
+    {
+      "type": "table",
+      "dataKey": "quarterlyData",
+      "config": { "columns": ["quarter", "revenue", "profit"] }
+    }
+  ]
+}
