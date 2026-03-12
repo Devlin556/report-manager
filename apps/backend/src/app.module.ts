@@ -4,8 +4,8 @@ import { InfraModule } from './infra/infra.module';
 import { ReportsModule } from './modules/reports/reports.module';
 
 @Module({
-  imports: [ConfigModule, InfraModule, ReportsModule],
-  controllers: [],
-  providers: [],
+    imports: [ConfigModule, InfraModule, ReportsModule],
+    controllers: [],
+    providers: [],
 })
 export class AppModule {}

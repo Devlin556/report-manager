@@ -6,8 +6,8 @@ import { ReportTemplatesModule } from '../report-templates/report-templates.modu
 import { ReportDataModule } from '../report-data/report-data.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Report]), ReportTemplatesModule, ReportDataModule],
-  providers: [ReportWorkerManagerService],
-  exports: [ReportWorkerManagerService],
+    imports: [TypeOrmModule.forFeature([Report]), ReportTemplatesModule, ReportDataModule],
+    providers: [ReportWorkerManagerService],
+    exports: [ReportWorkerManagerService],
 })
 export class ReportWorkerManagerModule {}

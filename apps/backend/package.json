@@ -5,9 +5,9 @@
   "scripts": {
     "build": "nest build",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migration:generate": "npm run typeorm -- migration:generate src/migrations/${npm_config_name:-Migration} -d data-source.ts",
-    "migration:run": "npm run typeorm -- migration:run -d data-source.ts",
-    "migration:revert": "npm run typeorm -- migration:revert -d data-source.ts",
+    "migration:generate": "npm run typeorm -- migration:generate src/migrations/${npm_config_name:-Migration} -d src/data-source.ts",
+    "migration:run": "npm run typeorm -- migration:run -d src/data-source.ts",
+    "migration:revert": "npm run typeorm -- migration:revert -d src/data-source.ts",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"config/**/*.yml\"",
     "format:check": "prettier --check \"src/**/*.ts\" \"test/**/*.ts\" \"config/**/*.yml\"",
     "start": "nest start",

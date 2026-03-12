@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
 import type { ReportTemplate } from '../report-worker-manager/workers/worker.types';
@@ -6,28 +6,32 @@ import type { ReportTemplate } from '../report-worker-manager/workers/worker.typ
 export type { ReportTemplate };
 
 @Injectable()
-export class ReportTemplatesService {
-  private readonly templatesDir = path.join(process.cwd(), 'data', 'report_templates');
+export class ReportTemplatesService implements OnModuleInit {
+    private templates: Map<string, ReportTemplate> = new Map<string, ReportTemplate>();
+    private readonly templatesDir = path.join(process.cwd(), 'data', 'report_templates');
 
-  getTemplate(reportType: string, format: string): ReportTemplate | null {
-    const filepath = path.join(this.templatesDir, `${reportType}.json`);
-    if (!fs.existsSync(filepath)) return null;
+    onModuleInit(): any {
+        const files = fs.readdirSync(this.templatesDir);
 
-    const template = JSON.parse(fs.readFileSync(filepath, 'utf8')) as ReportTemplate;
-    if (template.format !== format) return null;
+        files
+            .filter((file) => file.endsWith('.json'))
+            .forEach((file) => {
+                const template = JSON.parse(
+                    fs.readFileSync(path.join(this.templatesDir, file), 'utf8'),
+                ) as ReportTemplate;
 
-    return template;
-  }
+                this.templates.set(`${template.reportType}:${template.format}`, template);
+            });
+    }
 
-  listTemplates(): Array<{ reportType: string; format: string }> {
-    const files = fs.readdirSync(this.templatesDir);
-    return files
-      .filter((f) => f.endsWith('.json'))
-      .map((f) => {
-        const t = JSON.parse(
-          fs.readFileSync(path.join(this.templatesDir, f), 'utf8'),
-        ) as ReportTemplate;
-        return { reportType: t.reportType, format: t.format };
-      });
-  }
+    getTemplate(reportType: string, format: string): ReportTemplate | null {
+        return this.templates.get(`${reportType}:${format}`) ?? null;
+    }
+
+    listTemplates(): Array<{ reportType: string; format: string }> {
+        return Array.from(this.templates.values()).map((template) => ({
+            reportType: template.reportType,
+            format: template.format,
+        }));
+    }
 }

@@ -8,12 +8,8 @@ import { ReportWorkerManagerModule } from '../report-worker-manager/report-worke
 import { ReportTemplatesModule } from '../report-templates/report-templates.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Report]),
-    ReportWorkerManagerModule,
-    ReportTemplatesModule,
-  ],
-  controllers: [ReportsController, ReportsSseController],
-  providers: [ReportsService],
+    imports: [TypeOrmModule.forFeature([Report]), ReportWorkerManagerModule, ReportTemplatesModule],
+    controllers: [ReportsController, ReportsSseController],
+    providers: [ReportsService],
 })
 export class ReportsModule {}

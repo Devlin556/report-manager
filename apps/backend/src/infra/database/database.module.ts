@@ -5,24 +5,24 @@ import { ConfigService } from '../../config/config.service';
 
 @Global()
 @Module({
-  imports: [
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => {
-        const { host, port, username, password, database } = config.getServices().database;
-        return {
-          type: 'postgres',
-          host,
-          port,
-          username,
-          password,
-          database,
-          autoLoadEntities: true,
-          synchronize: false,
-        };
-      },
-    }),
-  ],
+    imports: [
+        TypeOrmModule.forRootAsync({
+            imports: [ConfigModule],
+            inject: [ConfigService],
+            useFactory: (config: ConfigService) => {
+                const { host, port, username, password, database } = config.getServices().database;
+                return {
+                    type: 'postgres',
+                    host,
+                    port,
+                    username,
+                    password,
+                    database,
+                    autoLoadEntities: true,
+                    synchronize: false,
+                };
+            },
+        }),
+    ],
 })
 export class DatabaseModule {}

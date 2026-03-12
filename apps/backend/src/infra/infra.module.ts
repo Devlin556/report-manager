@@ -4,6 +4,6 @@ import { DatabaseModule } from './database/database.module';
 import { S3Module } from './s3/s3.module';
 
 @Module({
-  imports: [RedisModule, DatabaseModule, S3Module],
+    imports: [RedisModule, DatabaseModule, S3Module],
 })
 export class InfraModule {}

@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
 
-const configPath = path.join(__dirname, 'config', 'config.yml');
+const configPath = path.join(__dirname, '../config', 'config.yml');
 const config = yaml.load(fs.readFileSync(configPath, 'utf8')) as {
   services: { database: { host: string; port: number; username: string; password: string; database: string } };
 };

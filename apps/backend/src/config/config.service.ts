@@ -6,31 +6,31 @@ import type { AppConfig } from './config.schema';
 
 @Injectable()
 export class ConfigService {
-  private readonly config: AppConfig;
+    private readonly config: AppConfig;
 
-  constructor() {
-    const configPath = path.join(process.cwd(), 'config', 'config.yml');
-    const fileContent = fs.readFileSync(configPath, 'utf8');
-    this.config = yaml.load(fileContent) as AppConfig;
-  }
+    constructor() {
+        const configPath = path.join(process.cwd(), 'config', 'config.yml');
+        const fileContent = fs.readFileSync(configPath, 'utf8');
+        this.config = yaml.load(fileContent) as AppConfig;
+    }
 
-  get(): AppConfig {
-    return this.config;
-  }
+    get(): AppConfig {
+        return this.config;
+    }
 
-  getService() {
-    return this.config.service;
-  }
+    getService() {
+        return this.config.service;
+    }
 
-  getPorts() {
-    return this.config.ports;
-  }
+    getPorts() {
+        return this.config.ports;
+    }
 
-  getServices() {
-    return this.config.services;
-  }
+    getServices() {
+        return this.config.services;
+    }
 
-  getReports() {
-    return this.config.reports;
-  }
+    getReports() {
+        return this.config.reports;
+    }
 }
